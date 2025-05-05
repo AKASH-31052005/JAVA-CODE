@@ -1,0 +1,23 @@
+class Solution {
+    public int hIndex(int[] citations) {
+        Arrays.sort(citations);
+        reverse(citations);
+        int count=0;
+        int n =citations.length;
+        while(count<n && citations[count]>=count+1){
+            count++;
+        }
+        return count;
+    }
+    public void reverse(int[] arr){
+        int start=0;
+        int end=arr.length-1;
+        while(start<end){
+            int temp=arr[start];
+            arr[start]=arr[end];
+            arr[end]=temp;
+            start++;
+            end--;
+        }
+    }
+}
